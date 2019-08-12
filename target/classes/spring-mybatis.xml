@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+        非自定义别名：jdk中所有类都使用了非自定义别名，别名内容是类名的所哟普字母不区分大小写
+                    如果是包装类还可以使用其基本数据类型的名字
+    -->
+
+    <!--开启延迟加载
+        注意：有顺序问题，必须放在最前面
+    -->
+    <!--    <settings>-->
+    <!--        &lt;!&ndash;-->
+    <!--            lazyLoadingEnabled:延迟加载的总开关-->
+    <!--            aggressiveLazyLoading:启用延迟加载-->
+    <!--        &ndash;&gt;-->
+    <!--        <setting name="lazyLoadingEnabled" value="true"/>-->
+    <!--        <setting name="aggressiveLazyLoading" value="false"/>-->
+
+    <!--        &lt;!&ndash;-->
+    <!--            开启二级缓存：在mybatis中只要缓存的配置指的都是二级缓存-->
+    <!--            可以只针对一个mapping进行配置缓存使用cache标签-->
+    <!--        &ndash;&gt;-->
+    <!--        <setting name="cacheEnabled" value="true"/>-->
+    <!--    </settings>-->
+
+    <!--自定义别名-->
+    <typeAliases>
+        <!--type: 要被定义成别名的数据类型-->
+        <typeAlias type="zhou.model.Person" alias="person"/>
+    </typeAliases>
+
+
+    <!--
+        数据库环境配置如果和spring整合就不需要配了，完全交给spring
+        default:决定你要用哪个数据源
+    -->
+    <!--    <environments default="mysql">-->
+    <!--        <environment id="mysql">-->
+    <!--            <transactionManager type="JDBC"/>-->
+    <!--            <dataSource type="POOLED">-->
+    <!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+    <!--                <property name="url" value="jdbc:mysql://localhost:3306/test?serverTimezone=UTC"/>-->
+    <!--                <property name="username" value="root"/>-->
+    <!--                <property name="password" value="root"/>-->
+    <!--            </dataSource>-->
+    <!--        </environment>-->
+
+    <!--        &lt;!&ndash;        <environment id="oracle">&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <transactionManager type="JDBC"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <dataSource type="POOLED">&ndash;&gt;-->
+    <!--        &lt;!&ndash;                <property name="driver" value="${driver}"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;                <property name="url" value="${url}"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;                <property name="username" value="${username}"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;                <property name="password" value="${password}"/>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            </dataSource>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </environment>&ndash;&gt;-->
+    <!--    </environments>-->
+    <!--
+        管理每张表的映射文件
+        resource: 引入映射文件，注意包之间用/
+    -->
+    <!--    <mappers>-->
+    <!--        <mapper resource="mappings/PersonMapper.xml"/>-->
+    <!--        <mapper resource="mappings/OrdersMapper.xml"/>-->
+    <!--        <mapper resource="mappings/OrderDetailsMapper.xml"/>-->
+    <!--        <mapper resource="mappings/PersonRoleMapper.xml"/>-->
+    <!--        <mapper resource="mappings/RoleMapper.xml"/>-->
+    <!--        <mapper resource="mappings/IdCardMapper.xml"/>-->
+    <!--    </mappers>-->
+</configuration>

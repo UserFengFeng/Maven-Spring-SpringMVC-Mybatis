@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PersonDao">
+    <resultMap id="BaseResultMap" type="com.model.Person">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="birthday" jdbcType="DATE" property="birthday"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, gender, address, birthday
+  </sql>
+
+    <select id="selectAll" resultType="com.model.Person">
+      select * from person
+    </select>
+</mapper>
